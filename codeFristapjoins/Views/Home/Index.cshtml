@@ -1,0 +1,58 @@
+﻿@model IEnumerable<codeFristapjoins.Models.Empoyes>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<button>@Html.ActionLink("Add Employes","Create")</button>
+
+<div class="text-center" ,align="center">
+    <h1 class="display-4">Employee</h1>
+    <table class=" table table-bordered">
+        <tr>
+            <th>Eid</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Salary</th>
+            <th>Mobile</th>
+            <th>depart_name</th>
+            <th>Action</th>
+
+
+        </tr>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Eid</td>
+                <td>@emp.Name</td>
+                <td>@emp.Age</td>
+                <td>@emp.Gender</td>
+                <td>@emp.Salary</td>
+                <td>@emp.Mobile</td>
+                <td>@emp.Department</td>
+                <td>
+                    <a> @Html.ActionLink("Details", "Details", new { IDataBindingsAccessor = Model.Id })</a> |
+
+
+
+                    <a>@Html.ActionLink("Edit", "Edit", new { id = Model.Eid })</a> |
+
+
+                    <a>@Html.ActionLink("Delete", "Delete", new { id = Model.Eid })</a>
+
+                </td>
+
+
+
+
+            </tr>
+
+        }
+    </table>
+
+
+
+
+</div>
